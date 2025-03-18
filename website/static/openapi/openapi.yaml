@@ -8,7 +8,7 @@ info:
     Dkron implements a RESTful JSON API over HTTP to communicate with software clients. Dkron listens in port `8080` by default. All examples in this section assume that you're using the default port.
 
     Default API responses are unformatted JSON add the `pretty=true` param to format the response.
-  version: 1-oas3
+  version: 1.0.0.
 servers:
 - url: http://localhost:8080/v1
 
