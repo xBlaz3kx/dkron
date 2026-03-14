@@ -2,7 +2,7 @@ name: Test
 on:
     push:
         branches:
-            - "**"
+            - main
         tags-ignore:
             - "**"
 
@@ -13,6 +13,10 @@ on:
             - "docs/**"
             - "examples/**"
             - "ui"
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+    cancel-in-progress: true
 
 jobs:
     test:

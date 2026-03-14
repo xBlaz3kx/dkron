@@ -3,13 +3,17 @@ name: E2E Tests
 on:
   push:
     branches:
-      - "**"
+      - main
   pull_request:
     paths-ignore:
       - "**.md"
       - "website/**"
       - "docs/**"
       - "examples/**"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   e2e-tests:
