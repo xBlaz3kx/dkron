@@ -138,17 +138,6 @@ dockers:
           - --platform=linux/arm64/v8
 
     - image_templates:
-          - "{{ .Env.IMAGE_PREFIX }}/{{ .ProjectName }}:{{ .Version }}-armv7"
-      dockerfile: Dockerfile.release
-      use: buildx
-      goos: linux
-      goarch: arm
-      goarm: "7"
-      ids: *docker-ids
-      build_flag_templates:
-          - --platform=linux/arm/v7
-
-    - image_templates:
           - "{{ .Env.IMAGE_PREFIX }}/{{ .ProjectName }}:{{ .Version }}-light-amd64"
       dockerfile: Dockerfile.release
       use: buildx
@@ -168,17 +157,6 @@ dockers:
       ids: *docker-ids
       build_flag_templates:
           - --platform=linux/arm64/v8
-
-    - image_templates:
-          - "{{ .Env.IMAGE_PREFIX }}/{{ .ProjectName }}:{{ .Version }}-light-armv7"
-      dockerfile: Dockerfile.release
-      use: buildx
-      goos: linux
-      goarch: arm
-      goarm: "7"
-      ids: *docker-ids
-      build_flag_templates:
-          - --platform=linux/arm/v7
 
 docker_manifests:
     - name_template: "{{ .Env.IMAGE_PREFIX }}/{{ .ProjectName }}:{{ .Version }}"
